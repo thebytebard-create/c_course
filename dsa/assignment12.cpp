@@ -79,7 +79,10 @@ void dequeue::del_front()
     {
         node*t;
         t=front;
-        front=front->next;
+        if(front->next==nullptr)
+        rear=front=front->next;
+        else
+          front=front->next;
         front->prev=nullptr;
         delete t;
     }   
@@ -121,4 +124,17 @@ bool dequeue::is_empty()
      return false;
     else
       return true;
+}
+
+int main()
+{
+  dequeue k;
+  k.insert_rear(5);
+ // k.insert_rear(9);
+  //k.insert_rear(8);
+  cout<<k.get_front();
+  k.del_front();
+  k.insert_rear(9);
+  cout<<k.get_front();
+  return 0;
 }

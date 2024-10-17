@@ -335,35 +335,35 @@ apq::~apq()
 
 void apq::enqueue(int data)
 {
-  if(capacity!=count)
+  if (capacity != count)
   {
-    if(ptr[count][1]==0)
+    if (ptr[count][1] == 0)
     {
-      ptr[count][0]=data;
-      ptr[count][1]=count+1;
+      ptr[count][0] = data;
+      ptr[count][1] = count + 1;
       count++;
     }
     else
     {
-      int p,q,i=0;
+      int p, q, i = 0;
       do
       {
-        if(ptr[i][0]>data)
+        if (ptr[i][0] > data)
         {
-          p=ptr[i][0];
-          ptr[i][0]=data;
-          
-          for(int j=i+1;j<=count;j++)
+          p = ptr[i][0];
+          ptr[i][0] = data;
+
+          for (int j = i + 1; j <= count; j++)
           {
-            q=ptr[j][0];
-            ptr[j][0]=p;
-            p=q;
+            q = ptr[j][0];
+            ptr[j][0] = p;
+            p = q;
           }
           break;
         }
         i++;
-      } while (i!=count+1);
-      ptr[count][1]=count+1;
+      } while (i != count + 1);
+      ptr[count][1] = count + 1;
       count++;
     }
   }
@@ -371,41 +371,42 @@ void apq::enqueue(int data)
 
 int apq::get_element()
 {
-  if(ptr[count-1][1]!=0)
-    return ptr[count-1][0];
+  if (ptr[count - 1][1] != 0)
+    return ptr[count - 1][0];
   return -1;
 }
 
- void apq::dequeue()
- {
-  if(ptr[count-1][1]!=0)
-   count--;
- }
-  
-  int apq::get_number()
-  {
-     if(ptr[count-1][1]!=0)
-    return ptr[count-1][1];
+void apq::dequeue()
+{
+  if (ptr[count - 1][1] != 0)
+    count--;
+}
+
+int apq::get_number()
+{
+  if (ptr[count - 1][1] != 0)
+    return ptr[count - 1][1];
   return -1;
-  }
-  bool apq:: isempty()
-  {
-    if(ptr[count-1][1]==0)
-      return true;
-    return false;
-  }
+}
+
+bool apq::isempty()
+{
+  if (ptr[count - 1][1] == 0)
+    return true;
+  return false;
+}
+
 int main()
 {
- apq k(10);
- k.enqueue(2);
- k.enqueue(5);
- k.enqueue(1);
- k.enqueue(3);
- cout<<k.get_element();
- k.dequeue();
- cout<<k.get_element();
- cout<<k.isempty();
-
+  apq k(10);
+  k.enqueue(2);
+  k.enqueue(5);
+  k.enqueue(1);
+  k.enqueue(3);
+  cout << k.get_element();
+  k.dequeue();
+  cout << k.get_element();
+  cout << k.isempty();
 
   return 0;
 }
