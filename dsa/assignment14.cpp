@@ -89,7 +89,7 @@ void bst::preorderec(node *ptr)
     if (ptr)
     {
         cout << "  " << ptr->item;
-        inorderec(ptr->left);
+        preorderec(ptr->left);
         preorderec(ptr->right);
     }
 }
