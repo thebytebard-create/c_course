@@ -2,12 +2,14 @@
 
 void q1(int n)
 {
+    // check whether a number is positive or not
+
    n>0?printf("positive"):printf("negative");
 }
 
 void q2(int n)
 {
-    // check whether a number is divisible by 4 or not
+    // check whether a number is divisible by 5 or not
     
     n%5==0?printf("yes"):printf("no");
     
@@ -35,15 +37,7 @@ void q4(int s)
 
 void q5()
 {
-    int a=0,b=1,c;
-    int i;
-    for(i=0;i<5;i++)
-    {
-        printf("%d",a);
-        c=a+b;
-        a=b;
-        b=c;
-    }
+    
 }
 
 int main()
