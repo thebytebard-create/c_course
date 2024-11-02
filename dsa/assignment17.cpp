@@ -1,4 +1,6 @@
 #include<iostream>
+#include<stack>
+#include<queue>
 using namespace std;
 
 class graph
@@ -96,7 +98,7 @@ void graph::BFS(int start)
        bool *v=new bool[v_count];
        for (int i = 0; i < v_count; i++) 
             v[i] = false;
-       queue q;
+       queue<int> q;
        q.push(start);
        v[start]=true;
        int current;
@@ -125,14 +127,14 @@ void graph ::dfs(int start)
      bool *v=new bool[v_count];
        for (int i = 0; i < v_count; i++) 
             v[i] = false;
-       stack q;
+       stack<int> q;
        q.push(start);
        v[start]=true;
        int current;
 
        while(!q.empty())
        {
-        current = q.front();
+        current = q.top();
         cout<<" "<<current;
         q.pop();
 
