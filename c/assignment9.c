@@ -66,7 +66,7 @@ int main ()
   int x;
   printf("enter a number");
   scanf("%d",&x);
-  if(x%2==0 || x%7==0)
+  if(x%3==0 || x%7==0)
  {
     printf("divisible by 7 or 2");
  }

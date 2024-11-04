@@ -85,7 +85,4 @@ printf("\t is the reverse digit");
 return 0;
 
 
-
-
-
 }
