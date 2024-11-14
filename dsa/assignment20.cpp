@@ -10,10 +10,14 @@ class heap
       int *ptr;
    public:
       heap(int x);
+      heap(const heap &);
+      ~heap();
+      void sort();
       void insert(int x);
       bool empty();
       int max();
       void del();
+      heap& operator=(heap&);
 };
 
 heap::heap(int x)
@@ -25,6 +29,20 @@ heap::heap(int x)
        ptr[i]=0;
 }
 
+heap::heap(const heap &e)
+{
+   capacity=e.capacity;
+   last_index=e.last_index;
+   ptr=new int[capacity];
+
+   for(int i=0;i<=last_index;i++)
+     ptr[i]=e.ptr[i];
+}
+
+heap::~heap()
+{
+   delete []ptr;
+}
 void heap::insert(int x)
 {
     
@@ -107,7 +125,62 @@ void heap::del()
    }
    else
    cout<<"heap is already empty ";
-     
 }
- 
+
+void heap::sort()
+{
+   int s=last_index;
+    while(last_index>0)
+   {
+     int i=0;
+     int temp;
+     temp=ptr[last_index];
+     ptr[last_index]=ptr[i];
+     last_index--;
+
+     if(last_index>=0)
+     {
+       int a,b,c;
+        while(true)
+        {
+          a=(2*i)+1;
+          b=(2*i)+2;
+          if(a>last_index)
+           break;
+          if(b>last_index)
+            c=a;
+         else         
+          c=ptr[a]>ptr[b]?a:b;
+          if(temp>=ptr[c])
+          {
+            ptr[i]=temp;
+           break;
+          }
+          else
+          {
+             ptr[i]=ptr[c];
+             i=c;
+          }
+        }
+     }
+
+   }
+   last_index=s;
+}
+
+ heap& heap::operator=(heap&e)
+ {
+   if(this==&e)
+   return *this;
+
+   delete []ptr;
+
+   capacity=e.capacity;
+   last_index=e.last_index;
+
+   ptr=new int[capacity];
+   for(int i=0;i<=last_index;i++)
+    ptr[i]=e.ptr[i];
+    return *this;
+ }
 

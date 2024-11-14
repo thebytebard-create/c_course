@@ -17,8 +17,7 @@ void bubble_sort(int a[],int n)
                 a[j+1]=temp;
             }
         }
-    }
-    
+    } 
 }
 
 void modified_bubble_sort(int a[],int n)
@@ -35,18 +34,16 @@ void modified_bubble_sort(int a[],int n)
                 temp=a[j];
                 a[j]=a[j+1];
                 a[j+1]=temp;
-
             }
         }
         if(!flag)
         break;
-    }
-    
+    }  
 }
 
 void selection_sort(int a[],int n)
 {
-    //my way
+  //my way
     int temp,t;
     for(int i=0;i<n-1;i++)
     {
@@ -85,7 +82,7 @@ int min(int a[],int n,int j)
 
 void selectionsort(int a[],int n)
 {
-    //sir ka way
+    //sir way
     int i,minindex,t;
     for(int i=0;i<n-1;i++)
     {
@@ -101,27 +98,27 @@ void selectionsort(int a[],int n)
 void insertion_sort(int a[],int n)
 {
     // my way
-  int temp;
+  int temp,j;
   for(int i=0;i<n-1;i++)
   {
     temp=a[i+1];
     if(a[i]>temp)
     {
-        for(int j=i;j>=0;j--)
+        for(j=i;j>=0;j--)
         {
              if(a[j]<=temp)
              break;
             a[j+1]=a[j];
-            a[j]=temp;
            
         }
+          a[j]=temp;
     }
   }
 }
 
 void insertionsort(int a[],int n)
 {
-    // sir ka method
+// sir ka way
   int temp,j,i;
   for( i=1;i<n;i++)
   {
@@ -183,7 +180,6 @@ int quicki(int a[],int l,int u)
 
 int quick(int a[],int l,int u)
 {
-    
     //sir way
     int loc=l,t;
     while(l<u)
@@ -209,15 +205,13 @@ int quick(int a[],int l,int u)
     return loc;
 }
 void quick_sort(int a[],int l,int u)
-{ 
-   
+{  
     int loc;
     loc=quick(a,l,u);
     if(loc>l+1)
         quick_sort(a,l,loc-1);
     if(loc<u-1)
-        quick_sort(a,loc+1,u);
-     
+        quick_sort(a,loc+1,u);  
 }
 
 void quicksort_loop(int a[],int l,int u)
@@ -340,7 +334,6 @@ void merging(int a[],int l,int m,int u)
             k++;
     }   
 }
-
 void merge_sort(int a[],int l,int u)
 {
    int m;
