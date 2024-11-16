@@ -12,8 +12,10 @@ class array
       X *ptr;
    public:
        array(int );
+       array(const array&e);
        ~array();
        bool empty();
+       array& operator=(const array &e);
        void create(int x);
        void append(X);
        void insert(int x,X);
@@ -48,6 +50,34 @@ array<X>::~array()
    if(ptr!=nullptr)
        delete []ptr;
 }
+template<typename X>
+array<X>::array(const array&e)
+{
+   capacity=e.capacity;
+   lastindex=e.lastindex;
+
+   ptr=new X[capacity];
+
+   for(int i=0;i<=lastindex;i++)
+      ptr[i]=e.ptr[i];
+}
+template <typename X>
+array<X>& array<X>::operator=(const array &e)
+{
+    if(this==&e)
+      return *this;
+    
+    delete []ptr;
+    capacity=e.capacity;
+   lastindex=e.lastindex;
+
+   ptr=new X[capacity];
+
+   for(int i=0;i<=lastindex;i++)
+      ptr[i]=e.ptr[i];
+
+      return *this;
+}
 
 template <typename X>
 bool array<X>::empty()
@@ -62,7 +92,7 @@ void array<X>::create(int x)
 {
    if(x<1)
      throw invalid;
-    if(ptr)
+    if(ptr!=nullptr)
       delete []ptr;
       ptr=new X[x];
       capacity=x;
@@ -160,11 +190,19 @@ int array<X>::search(X x)
 int main()
 {
     array<char> b(5);
-    b.append('n');
+    try
+    {
+        b.append('n');
      b.append('j');
       b.append('u');
        b.append('p');
         b.append('o');
         cout<<b.get(3);
+    }
+    catch(int e)
+    {
+        cout<<"invalid";
+    }
+    
         return 0;
 }
