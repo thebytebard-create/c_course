@@ -40,7 +40,7 @@ void sort(x a[],int s)
 }
 
 template <typename c>
-c biggest_array(c a[],int s)
+c biggest_value(c a[],int s)
 {
     c temp;
     temp=a[0];
@@ -55,7 +55,6 @@ c biggest_array(c a[],int s)
 int main()
 {
     char a[]={'b','u','a','z'};
-       cout<<biggest_array(a,4);
-    
+       cout<<biggest_value(a,4);   
     return 0;
 }
