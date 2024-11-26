@@ -6,6 +6,7 @@ using namespace std;
 
 void f1()
 {
+  //display the values
     array<int,5> a={45,56,98,70,43};
 
 array<int,5>:: reverse_iterator it;
@@ -17,6 +18,7 @@ array<int,5>:: reverse_iterator it;
 
 void f2()
 {
+  //find the average
     array<float,5> b={2.5,6.4,9.2,7.6,5.1};
     float s=0;
 
@@ -30,6 +32,7 @@ void f2()
 
 void f3()
 {
+  //find the greatest element
    array<int,10> a;
   
    cout<<"enetr  ten numbers : "<<endl;
@@ -65,6 +68,7 @@ class complex
 };
 complex add_array(array<complex,5> a)
 {
+  //add all complex object that is in a array
   complex c(0,0);
   for(auto x:a)
   {
@@ -75,6 +79,7 @@ complex add_array(array<complex,5> a)
 
 void f4()
 {
+  //add five array
     array<complex,5>j={complex(5,20),
                        complex(6,2),
                        complex(8,9),
@@ -95,6 +100,7 @@ void f4()
 }
 void f5()
 {
+  //sort the array
   //my way
   array<int,10> a={11,99,88,83,46,25,36,45,27,89};
    array<int,10>::iterator it,p;
@@ -118,6 +124,7 @@ void f5()
 
 void f5_2()
 {
+  //sort the array
 array<int,10> a={11,99,88,83,46,25,36,45,27,89};
 sort(a.begin(),a.end());
   for(auto x:a)

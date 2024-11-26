@@ -47,8 +47,8 @@ template <typename X>
 template <typename X>
 array<X>::~array()
 {
-   if(ptr!=nullptr)
-       delete []ptr;
+   if(ptr!=nullptr) 
+      delete []ptr ;     
 }
 template<typename X>
 array<X>::array(const array&e)
