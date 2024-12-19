@@ -96,7 +96,7 @@ int make_move(int player)
     {
       printf("\nchoose colum number :");
      scanf("%d",&move);
-    if(move<1&&move>9 )
+    if(move<1||move>9 )
     {
       printf("\ninvalid choice ");
     }
@@ -241,7 +241,7 @@ int main()
   {
     switch(game_menu())
    {
-      case 1:
+      case 1: 
       system("cls");
         set();
         for(turn=0,player=1;turn<9;turn++)
